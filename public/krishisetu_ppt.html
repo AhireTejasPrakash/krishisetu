@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KrishiSetu — Hackathon Presentation</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #0f1f0f; color: white; }
+    .slide { display: none; min-height: 100vh; padding: 48px 64px; box-sizing: border-box; }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; }
+    .badge { display: inline-block; background: rgba(74,222,128,0.2); border: 1px solid rgba(74,222,128,0.4); color: #4ade80; padding: 4px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; }
+    .tag { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #d1d5db; padding: 4px 12px; border-radius: 6px; font-size: 13px; margin: 3px; }
+    .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 24px; }
+    .green-card { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.25); border-radius: 16px; padding: 20px 24px; }
+    .warn-card { background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25); border-radius: 16px; padding: 16px 20px; }
+    .nav-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all 0.2s; }
+    .nav-btn:hover { background: rgba(74,222,128,0.3); border-color: #4ade80; }
+    .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); cursor: pointer; transition: all 0.2s; }
+    .progress-dot.active { background: #4ade80; transform: scale(1.4); }
+    .highlight { color: #4ade80; }
+    .big-stat { font-size: 48px; font-weight: 800; color: #4ade80; line-height: 1; }
+    .feature-icon { width: 44px; height: 44px; background: rgba(74,222,128,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .tech-pill { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; padding: 5px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide active" id="slide-0" style="background: linear-gradient(135deg, #0f1f0f 0%, #0a1a2e 100%);">
+  <div style="max-width:800px;">
+    <div class="badge mb-6">🏆 Hackathon Project 2026</div>
+    <h1 style="font-size:72px;font-weight:900;line-height:1.1;margin:0 0 16px 0;">
+      🌱 Krishi<span class="highlight">Setu</span>
+    </h1>
+    <p style="font-size:24px;color:#9ca3af;margin:0 0 32px 0;max-width:600px;">
+      AI-powered smart farming platform for Indian farmers — from soil to sale.
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <span class="tag">⚡ Real-Time Data</span>
+      <span class="tag">🤖 Machine Learning</span>
+      <span class="tag">🌍 Multilingual</span>
+      <span class="tag">📱 PWA Mobile App</span>
+      <span class="tag">🌾 For Indian Farmers</span>
+    </div>
+    <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;gap:40px;">
+      <div><div class="big-stat">50K+</div><div style="color:#6b7280;font-size:14px;margin-top:4px;">Target Farmers</div></div>
+      <div><div class="big-stat">22</div><div style="color:#6b7280;font-size:14px;margin-top:4px;">AI Crop Types</div></div>
+      <div><div class="big-stat">3</div><div style="color:#6b7280;font-size:14px;margin-top:4px;">Languages</div></div>
+      <div><div class="big-stat">8+</div><div style="color:#6b7280;font-size:14px;margin-top:4px;">Live APIs</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: Problem Statement -->
+<div class="slide" id="slide-1" style="background: linear-gradient(135deg, #1a0a0a 0%, #0f1f0f 100%);">
+  <div style="max-width:900px;width:100%;">
+    <div class="badge mb-4" style="background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.4);color:#f87171;">⚠️ The Problem</div>
+    <h2 style="font-size:48px;font-weight:800;margin:0 0 32px 0;">India's Farmers are Flying Blind</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:8px;">📉</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px;">Wrong Crop Selection</div>
+        <div style="color:#9ca3af;font-size:14px;">Farmers choose crops based on tradition, not soil data — leading to low yield and loss.</div>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:8px;">💸</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px;">Middlemen Exploitation</div>
+        <div style="color:#9ca3af;font-size:14px;">Lack of real-time mandi prices forces farmers to sell below market value.</div>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:8px;">🌦️</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px;">No Weather Alerts</div>
+        <div style="color:#9ca3af;font-size:14px;">No timely irrigation or pest warnings cause massive crop damage every season.</div>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:8px;">📜</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px;">Schemes Unreachable</div>
+        <div style="color:#9ca3af;font-size:14px;">Most farmers are unaware of PM-KISAN, PMFBY and other government subsidies they qualify for.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: Our Solution -->
+<div class="slide" id="slide-2" style="background: linear-gradient(135deg, #0f1a0f 0%, #0a1a2e 100%);">
+  <div style="max-width:900px;width:100%;">
+    <div class="badge mb-4">✅ Our Solution</div>
+    <h2 style="font-size:48px;font-weight:800;margin:0 0 8px 0;">One App. Every Farm Need.</h2>
+    <p style="color:#9ca3af;font-size:18px;margin:0 0 32px 0;">KrishiSetu bridges the gap between technology and the Indian farmer.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:16px;" class="green-card">
+        <div class="feature-icon">🤖</div>
+        <div><div style="font-weight:700;font-size:16px;">AI Crop Recommendation</div><div style="color:#9ca3af;font-size:13px;">Random Forest ML model trained on soil & climate data → recommends best crop with expected profit</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;" class="green-card">
+        <div class="feature-icon">💰</div>
+        <div><div style="font-weight:700;font-size:16px;">Live Mandi Prices</div><div style="color:#9ca3af;font-size:13px;">Real-time crop prices from backend database, updated daily with market fluctuation</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;" class="green-card">
+        <div class="feature-icon">🌤️</div>
+        <div><div style="font-weight:700;font-size:16px;">Real-Time Weather + Smart Alerts</div><div style="color:#9ca3af;font-size:13px;">Open-Meteo satellite API → irrigation, pest, and heat alerts generated automatically</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;" class="green-card">
+        <div class="feature-icon">🏛️</div>
+        <div><div style="font-weight:700;font-size:16px;">Government Schemes Portal</div><div style="color:#9ca3af;font-size:13px;">PM-KISAN, PMFBY, KCC — real eligibility info, helplines, and direct links to official portals</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: Tech Stack -->
+<div class="slide" id="slide-3" style="background: linear-gradient(135deg, #0a0a1a 0%, #0f1f0f 100%);">
+  <div style="max-width:900px;width:100%;">
+    <div class="badge mb-4" style="background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.4);color:#a5b4fc;">⚙️ Tech Stack</div>
+    <h2 style="font-size:48px;font-weight:800;margin:0 0 32px 0;">Built with Real Tech</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="card">
+        <div style="color:#a5b4fc;font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:12px;">FRONTEND</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="tech-pill">⚛️ React 18</span>
+          <span class="tech-pill">📘 TypeScript</span>
+          <span class="tech-pill">⚡ Vite</span>
+          <span class="tech-pill">🎨 TailwindCSS</span>
+          <span class="tech-pill">📱 PWA</span>
+          <span class="tech-pill">🔀 React Router</span>
+        </div>
+      </div>
+      <div class="card">
+        <div style="color:#a5b4fc;font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:12px;">BACKEND</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="tech-pill">🐍 Python</span>
+          <span class="tech-pill">⚡ FastAPI</span>
+          <span class="tech-pill">🤖 scikit-learn</span>
+          <span class="tech-pill">🐼 Pandas</span>
+          <span class="tech-pill">🌐 deep-translator</span>
+        </div>
+      </div>
+      <div class="card">
+        <div style="color:#a5b4fc;font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:12px;">LIVE APIS</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="tech-pill">🌦️ Open-Meteo</span>
+          <span class="tech-pill">🗺️ Nominatim</span>
+          <span class="tech-pill">📰 Hindu RSS</span>
+          <span class="tech-pill">🔒 OTP Auth</span>
+        </div>
+      </div>
+      <div class="card">
+        <div style="color:#a5b4fc;font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:12px;">AI / ML</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="tech-pill">🌲 Random Forest</span>
+          <span class="tech-pill">22 Crop Classes</span>
+          <span class="tech-pill">7 Soil Features</span>
+          <span class="tech-pill">AI Translation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: Key Features -->
+<div class="slide" id="slide-4" style="background: linear-gradient(135deg, #0f1f0f 0%, #0a1a0a 100%);">
+  <div style="max-width:900px;width:100%;">
+    <div class="badge mb-4">🌟 Key Features</div>
+    <h2 style="font-size:48px;font-weight:800;margin:0 0 32px 0;">What Makes Us Different</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">🌱</div>
+        <div style="font-weight:700;margin-bottom:4px;">AI Crop Planner</div>
+        <div style="color:#9ca3af;font-size:13px;">Enter soil NPK → get best crop with profit forecast</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">📊</div>
+        <div style="font-weight:700;margin-bottom:4px;">Live Dashboard</div>
+        <div style="color:#9ca3af;font-size:13px;">Weather, alerts, mandi prices all in one place</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">🌍</div>
+        <div style="font-weight:700;margin-bottom:4px;">3 Languages</div>
+        <div style="color:#9ca3af;font-size:13px;">English, Hindi, Marathi — news auto-translated</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">📱</div>
+        <div style="font-weight:700;margin-bottom:4px;">PWA App</div>
+        <div style="color:#9ca3af;font-size:13px;">Install on Android/iOS from Chrome browser</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">🔒</div>
+        <div style="font-weight:700;margin-bottom:4px;">Secure Auth</div>
+        <div style="color:#9ca3af;font-size:13px;">Register with OTP + Captcha, session persists</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:36px;margin-bottom:8px;">📰</div>
+        <div style="font-weight:700;margin-bottom:4px;">Live Farm News</div>
+        <div style="color:#9ca3af;font-size:13px;">Real internet news translated to your language</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: Future Scope -->
+<div class="slide" id="slide-5" style="background: linear-gradient(135deg, #0a0f1a 0%, #0f1f0f 100%);">
+  <div style="max-width:900px;width:100%;">
+    <div class="badge mb-4" style="background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.4);color:#fbbf24;">🚀 Future Scope</div>
+    <h2 style="font-size:48px;font-weight:800;margin:0 0 12px 0;">What We Can Add Next</h2>
+    <p style="color:#9ca3af;margin:0 0 28px 0;">These features can be added to make KrishiSetu a complete product:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">🦠</span>
+        <div><div style="font-weight:700;">Real AI Disease Detection</div><div style="color:#9ca3af;font-size:13px;">Upload crop photo → identify disease with real TensorFlow/PyTorch vision model</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">🎙️</span>
+        <div><div style="font-weight:700;">Voice Input in Hindi/Marathi</div><div style="color:#9ca3af;font-size:13px;">Web Speech API so farmers can speak instead of type</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">📍</span>
+        <div><div style="font-weight:700;">Nearest APMC Market Finder</div><div style="color:#9ca3af;font-size:13px;">GPS-based map showing closest mandis with prices and distance</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">💬</span>
+        <div><div style="font-weight:700;">WhatsApp/SMS Weather Alerts</div><div style="color:#9ca3af;font-size:13px;">Twilio integration to push rain and pest warnings to farmer's phone</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">👥</span>
+        <div><div style="font-weight:700;">Farmer Community Forum</div><div style="color:#9ca3af;font-size:13px;">Q&A and experience sharing between farmers in the same region</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;" class="warn-card">
+        <span style="font-size:24px;">📈</span>
+        <div><div style="font-weight:700;">Crop Yield History Tracker</div><div style="color:#9ca3af;font-size:13px;">Track past seasons, compare yields, and predict future performance</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: Impact -->
+<div class="slide" id="slide-6" style="background: linear-gradient(135deg, #0f1f0f 0%, #0a1a2e 100%);">
+  <div style="max-width:900px;width:100%;text-align:center;">
+    <div class="badge mb-6">💚 Impact</div>
+    <h2 style="font-size:56px;font-weight:900;margin:0 0 16px 0;">Built for <span class="highlight">Bharat's</span> Farmers</h2>
+    <p style="color:#9ca3af;font-size:20px;max-width:600px;margin:0 auto 48px;">India has 140 million farmers. KrishiSetu gives every one of them the same tools as corporate agri-businesses.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;">
+      <div class="green-card" style="text-align:center;">
+        <div class="big-stat">22</div>
+        <div style="color:#9ca3af;font-size:13px;margin-top:8px;">Crops Supported by AI</div>
+      </div>
+      <div class="green-card" style="text-align:center;">
+        <div class="big-stat">3</div>
+        <div style="color:#9ca3af;font-size:13px;margin-top:8px;">Languages (EN/HI/MR)</div>
+      </div>
+      <div class="green-card" style="text-align:center;">
+        <div class="big-stat">100%</div>
+        <div style="color:#9ca3af;font-size:13px;margin-top:8px;">Free to Use Forever</div>
+      </div>
+      <div class="green-card" style="text-align:center;">
+        <div class="big-stat">0G</div>
+        <div style="color:#9ca3af;font-size:13px;margin-top:8px;">Works Offline (PWA)</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;padding:24px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);border-radius:16px;">
+      <p style="font-size:18px;font-style:italic;color:#d1d5db;margin:0;">"When a farmer knows what to grow, when to water, and where to sell — he stops being poor."</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: Thank You -->
+<div class="slide" id="slide-7" style="background: linear-gradient(135deg, #0f1f0f 0%, #0a0a1a 100%);">
+  <div style="max-width:800px;text-align:center;margin:auto;width:100%;">
+    <div style="font-size:80px;margin-bottom:16px;">🌾</div>
+    <h2 style="font-size:64px;font-weight:900;margin:0 0 16px 0;">Thank You!</h2>
+    <p style="color:#9ca3af;font-size:20px;margin:0 0 40px 0;">KrishiSetu — Connecting Farmers with Technology</p>
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:40px;">
+      <div class="card" style="text-align:center;padding:16px 32px;">
+        <div style="font-size:13px;color:#6b7280;margin-bottom:4px;">Frontend</div>
+        <div style="font-weight:700;">http://localhost:5173</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 32px;">
+        <div style="font-size:13px;color:#6b7280;margin-bottom:4px;">Phone (WiFi)</div>
+        <div style="font-weight:700;">http://10.130.95.89:5173</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 32px;">
+        <div style="font-size:13px;color:#6b7280;margin-bottom:4px;">Backend API</div>
+        <div style="font-weight:700;">http://localhost:8000</div>
+      </div>
+    </div>
+    <div class="badge" style="font-size:16px;padding:10px 24px;">🏆 Made with ❤️ for Indian Farmers</div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div style="position:fixed;bottom:0;left:0;right:0;padding:20px 64px;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.1);">
+  <button class="nav-btn" onclick="changeSlide(-1)" id="prev-btn">← Prev</button>
+
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div id="dots" style="display:flex;gap:8px;"></div>
+    <span style="color:#6b7280;font-size:13px;margin-left:12px;" id="slide-counter">1 / 8</span>
+  </div>
+
+  <button class="nav-btn" onclick="changeSlide(1)" id="next-btn">Next →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  let current = 0;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'progress-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = Math.max(0, Math.min(n, slides.length - 1));
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    document.getElementById('slide-counter').textContent = `${current + 1} / ${slides.length}`;
+    document.getElementById('prev-btn').disabled = current === 0;
+    document.getElementById('next-btn').disabled = current === slides.length - 1;
+  }
+
+  function changeSlide(dir) { goTo(current + dir); }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
