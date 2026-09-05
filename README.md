@@ -74,4 +74,5 @@ Rainfall    : 180 mm
 
 Scan the QR code below to open KrishiSetu:
 
+<img src="./public/krishisetu_qr.png" alt="KrishiSetu QR Code" width="300">
 ![KrishiSetu QR Code](public/krishisetu_qr.png)
