@@ -69,3 +69,9 @@ Temperature : 27.5 °C
 Humidity    : 78 %
 Soil pH     : 6.4
 Rainfall    : 180 mm
+
+ ## 🚀 Live Demo
+
+Scan the QR code below to open KrishiSetu:
+
+![KrishiSetu QR Code](public/krishisetu_qr.png)
