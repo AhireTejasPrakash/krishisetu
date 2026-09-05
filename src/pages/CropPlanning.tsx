@@ -1,7 +1,6 @@
 import { API_BASE } from '../lib/api'
 import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
-import { CloudRain } from 'lucide-react'
 
 export default function CropPlanning() {
   const { t } = useApp()

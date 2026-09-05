@@ -21,8 +21,8 @@ export default function Advisory() {
         } else {
           setNewsError(true)
         }
-      } catch (err) {
-        console.error("Failed to fetch news", err)
+      } catch (_err) {
+        console.error("Failed to fetch news")
         setNewsError(true)
       } finally {
         setLoadingNews(false)
@@ -80,11 +80,11 @@ export default function Advisory() {
 
                 setAdvice({ water: waterAdvice, pest: pestAdvice })
               }
-            } catch (err) {
-              console.error("Failed to fetch weather for advice", err)
+            } catch (_err) {
+              console.error("Failed to fetch weather for advice")
             }
           },
-          (err) => console.log("Location denied for advice generator")
+          (_err) => console.log("Location denied for advice generator")
         )
       }
     }

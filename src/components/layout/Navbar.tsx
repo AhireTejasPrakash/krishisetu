@@ -4,13 +4,6 @@ import { Leaf, Globe, Bell, Menu, X, ChevronDown } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 import clsx from 'clsx'
 
-const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'Crop Planning', path: '/crop-planning' },
-  { label: 'Market', path: '/market' },
-  { label: 'Advisory', path: '/advisory' },
-  { label: 'Weather', path: '/weather' },
-]
 
 const languages = [
   { code: 'en', label: 'English' },

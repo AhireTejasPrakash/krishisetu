@@ -1,7 +1,7 @@
 import { API_BASE } from '../lib/api'
 import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
-import { FileText, ArrowRight, CheckCircle, HelpCircle } from 'lucide-react'
+import { FileText, ArrowRight, CheckCircle } from 'lucide-react'
 
 export default function Schemes() {
   const { t } = useApp()

@@ -17,6 +17,7 @@ export default function Dashboard() {
   })
   
   const [showCropModal, setShowCropModal] = useState(false)
+  const [showCropEdit, setShowCropEdit] = useState(false)
   const [tempCrop, setTempCrop] = useState('')
   
   const [tasks, setTasks] = useState<{id: number, title: string, done: boolean}[]>([])
@@ -167,6 +168,20 @@ export default function Dashboard() {
     }
   }
 
+  // Called when farmer wants to change crop after harvest
+  const handleChangeCrop = () => {
+    if (tempCrop.trim()) {
+      // Clear old tasks so new crop-specific tasks are generated
+      localStorage.removeItem('farmTasks')
+      setTasks([])
+      setUserCrop(tempCrop.trim())
+      setShowCropEdit(false)
+      setTempCrop('')
+      fetchMandiPrice(tempCrop.trim())
+      generateTasks(tempCrop.trim())
+    }
+  }
+
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (locationSearch.trim()) {
@@ -244,11 +259,37 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="card flex items-center gap-4">
           <div className="p-3 bg-green-100 text-green-700 rounded-full"><Sprout /></div>
-          <div>
+          <div className="flex-1 min-w-0">
             <p className="text-sm text-charcoal-500">{t('dashboard.currentCrop')}</p>
-            <p className="text-xl font-bold capitalize">{userCrop || '--'}</p>
+            {showCropEdit ? (
+              <div className="flex items-center gap-2 mt-1">
+                <input
+                  type="text"
+                  value={tempCrop}
+                  onChange={e => setTempCrop(e.target.value)}
+                  placeholder="e.g. Wheat, Onion..."
+                  className="input-field text-sm py-1 px-2 flex-1"
+                  autoFocus
+                  onKeyDown={e => { if (e.key === 'Enter') handleChangeCrop() }}
+                />
+                <button onClick={handleChangeCrop} className="bg-green-600 text-white text-xs font-bold px-2 py-1.5 rounded-lg hover:bg-green-700">✓</button>
+                <button onClick={() => { setShowCropEdit(false); setTempCrop('') }} className="bg-charcoal-100 text-charcoal-600 text-xs font-bold px-2 py-1.5 rounded-lg">✕</button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <p className="text-xl font-bold capitalize truncate">{userCrop || '--'}</p>
+                <button
+                  onClick={() => { setShowCropEdit(true); setTempCrop(userCrop || '') }}
+                  className="text-xs text-green-600 font-bold hover:underline whitespace-nowrap flex-shrink-0"
+                  title="Change crop after harvest"
+                >
+                  🔄 Change
+                </button>
+              </div>
+            )}
           </div>
         </div>
+
         
         <div className="card flex items-center gap-4">
           <div className="p-3 bg-amber-100 text-amber-700 rounded-full"><TrendingUp /></div>
