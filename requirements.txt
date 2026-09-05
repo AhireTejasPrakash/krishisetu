@@ -8,3 +8,4 @@ pydantic
 requests
 Pillow
 python-multipart
+deep-translator
